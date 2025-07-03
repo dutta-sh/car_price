@@ -52,7 +52,8 @@ The goal is to derive actionable insights that explain variation in car prices a
 
 #### Remove outliers (e.g., prices < $500 or > $100,000)
 - Example of analyzing odometer distribution:
-	<img src="./images/odometer.png" alt="Odometer" width="1500" height="300">
+
+	<img src="./images/odometer.png" alt="Odometer" width="500" height="300">
 
 	| Condition           | % rows |
 	|:--------------------|:-------|
@@ -66,7 +67,8 @@ The goal is to derive actionable insights that explain variation in car prices a
 #### Analyze correlation between features and price
 - Columns that have weaker correlation beyond a threshold are eliminated
 - Any correlation value such that -0.1 < x < 0.1 is eliminated
-   <img src="./images/correlation.png" alt="Correlation" width="1500" height="300">
+
+   <img src="./images/correlation.png" alt="Correlation" width="500" height="300">
 
 	| Feature   | Correlation|
 	|:----------|:-------|
@@ -104,9 +106,9 @@ The goal is to derive actionable insights that explain variation in car prices a
 ### Insights & Recommendations
 - Plot test vs train; actual vs prediction
   - Polynomial One Hot Encoding
-	<img src="./images/poly_ohe.png" alt="Polynomial OHE" width="1500" height="300">
+	<img src="./images/poly_ohe.png" alt="Polynomial OHE" width="1000" height="300">
   - Linear One HOt Encoding
-	<img src="./images/linear_ohe.png" alt="Linear OHE" width="1500" height="300">
+	<img src="./images/linear_ohe.png" alt="Linear OHE" width="1000" height="300">
 
 - Evaluate model performance using MSE
 

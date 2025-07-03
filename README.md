@@ -14,7 +14,7 @@ To frame the task, throughout our practical applications, we will refer back to 
 ## Technical Description
 
 From a data perspective, this task involves developing a predictive model to estimate used car prices based on available vehicle attributes.
-The objective is to:
+The goal is to:
 - perform exploratory data analysis (EDA) to identify key features influencing car prices
 - apply data preprocessing techniques to prepare the dataset
 - and use statistical and machine learning models to quantify the impact of each feature
@@ -55,12 +55,12 @@ The goal is to derive actionable insights that explain variation in car prices a
 
 	<img src="./images/odometer.png" alt="Odometer" width="500" height="300">
 
-	| Condition           | % rows |
-	|:--------------------|:-------|
-	| Price <= $500       | 10.10% |
-	| Price >= $100k      |  0.16% |
-	| Odometer >= 250k    |  1.75% |
-	| Total Removable rows| 15.64% |
+	| Condition            | % rows |
+	|:---------------------|:-------|
+	| Price <= $500        | 10.10% |
+	| Price >= $100k       | 0.16%  |
+	| Odometer >= 250k     | 1.75%  |
+	| Total Removable rows | 15.64% |
 
  - Shape after removing these outliers: (309646, 11)
 
@@ -70,38 +70,37 @@ The goal is to derive actionable insights that explain variation in car prices a
 
    <img src="./images/correlation.png" alt="Correlation" width="500" height="300">
 
-	| Feature   | Correlation|
-	|:----------|:-------|
-	| transmission| 0.21 |
-	| type   	   | 0.10 |
-	| title_status | -0.10 |
-	| age       	| -0.31 |
-	| odometer     | -0.50 |
+	| Feature      | Correlation |
+	|:-------------|:------------|
+	| transmission | 0.21        |
+	| type   	     | 0.10        |
+	| title_status | -0.10       |
+	| age       	  | -0.31       |
+	| odometer     | -0.50       |
 
 - Dropping columns with weaker correlation
   - ['model', 'manufacturer', 'fuel', 'state', 'region']
 - Columns with too many categories are eliminated
 - Shape after dropping weaker columns: (309646, 6)
 
- 	| Column     | Non-Null Count | Dtype   |  
- 	|:-----------|:-------------  |:------  |
-    |price       |  309646        | int64   |  
-    |odometer    |  309646        | float64 |
-    |title_status|  303922        | object  |
-    |transmission|  308345        | object  |
-    |type        |  249714        | object  |
-    |age         |  308554        | float64 |
+ 	| Column       | Non-Null Count | Dtype   |  
+ 	|:-------------|:---------------|:--------|
+    | price        | 309646         | int64   |  
+    | odometer     | 309646         | float64 |
+    | title_status | 303922         | object  |
+    | transmission | 308345         | object  |
+    | type         | 249714         | object  |
+    | age          | 308554         | float64 |
 	
 - `type` is the only col which has 250k non na rows while others are at 300k+
   - we dont want other imp rows to be dropped due to this. 
-  - Lets add an `unknown` type to preserve the non na row counts at 300k
+  - Lets add an `unknown` type to preserve the non-na row counts at 300k
 - Shape after final clean up: (301819, 6)
 
 ### Modeling
-- Use Linear Regression to get interpretable feature importances
+- Use Linear Regression to get interpretable feature importance
 - Use One Hot Encoding (OHE) for Categorical features
 - Use (or not use) polynomials and see if that makes it better or worse
-
 
 ### Insights & Recommendations
 - Plot test vs train; actual vs prediction
@@ -112,10 +111,10 @@ The goal is to derive actionable insights that explain variation in car prices a
 
 - Evaluate model performance using MSE
 
-	| Model      | Train MSE       | Test MSE       |  
- 	|:-----------|:----------------|:------         |
-    |Poly + OHE  |  151,882,536.67 | 149,935,314.73 |  
-    |Linear + OHE|  118,055,469.90 | 116,606,015.11 |
+	| Model        | Train MSE      | Test MSE       |  
+ 	|:-------------|:---------------|:---------------|
+    | Poly + OHE   | 151,882,536.67 | 149,935,314.73 |  
+    | Linear + OHE | 118,055,469.90 | 116,606,015.11 |
 	
 - Look at the top features and their coefficients
   - Linear Coefficients
@@ -124,12 +123,17 @@ The goal is to derive actionable insights that explain variation in car prices a
 	<img src="./images/poly_coeff.png" alt="Polynomial Coeff" width="1500" height="300">
 
 - Decide which model is better
- - Neither of the models fare greatly it terms of predicted vs actual data
- - Test vs Train fit however looks good
- - The Linear model seems to be better since
+ - Neither of the models fares greatly it terms of predicted vs. actual data
+ - Test vs. Train fit, however, looks good
+ - The Linear model seems better since
    - its MSE is much less
-   - prediction seems to be better due to less negative price points
-   - feature coeff are more uniformly distrubuted (much like the correlation matrix)
+   - the prediction seems better due to less negative price points
+   - feature coeff are more uniformly distributed (much like the correlation matrix)
 
 ## Summary & Conclusion
-
+Based on the above analysis, dealers should be focused on:
+- Selling cars that have clean title (even those which are financed/in lien) and avoid salvage and rebuilt cars
+- Trucks and Pickups have more value than sedan, hatchback, SUV, Wagon - aka family cars have less resale value compared to commercial cars
+- Automatic transmission rather than manual 
+- Age has very little impact on the resale value
+- Odometer doesn't show up in the top 20 features

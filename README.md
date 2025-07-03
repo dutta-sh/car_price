@@ -123,13 +123,13 @@ The goal is to derive actionable insights that explain variation in car prices a
   - Polynomial Coefficients	
 	<img src="./images/poly_coeff.png" alt="Polynomial Coeff" width="1500" height="300">
 
-- Decide which model is better
- - Neither of the models fares greatly in terms of predicted vs. actual data
- - Test vs. Train fit, looks good
- - The Linear model seems better since
-   - its MSE is much less
-   - the prediction seems better due to less negative price points
-   - feature coeff are more uniformly distributed (much like the correlation matrix)
+### Decide which model is better
+- Neither of the models fares greatly in terms of predicted vs. actual data
+- Test vs. Train fit, looks good
+- The Linear model seems better since
+  - its MSE is much less
+  - the prediction seems better due to less negative price points
+  - feature coeff are more uniformly distributed (much like the correlation matrix)
 
 ## Summary & Conclusion
 Based on the above analysis, dealers should be focused on:

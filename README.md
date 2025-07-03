@@ -3,7 +3,7 @@
 This repo contains the notebook that analyzes the [used car price data](./data/vehicles.csv) and attempts to determine the features that drive a car's price and hence what features are customers mostly interested in. 
 
 
-The notebook is present in this [github repo](./prompt.ipynb) as well as on [Google Colab](https://colab.research.google.com/drive/1McPGLzaaBCiUN2Iw1WEtMW9V4ZwvuyT1?usp=sharing).
+The notebook is present in this [github repo](./prompt_II.ipynb) as well as on [Google Colab](https://colab.research.google.com/drive/1McPGLzaaBCiUN2Iw1WEtMW9V4ZwvuyT1?usp=sharing).
 
 ## Problem Statement (as provided in the notebook prompt)
 

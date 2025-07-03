@@ -28,10 +28,10 @@ The goal is to derive actionable insights that explain variation in car prices a
 
 #### Observations:
 - Many rows are missing crucial info:
-- Over 1,000 rows have no data beyond id, region, price, and state
-- The target variable is price (and all rows have data).
-- Key features for predicting price include:
-	- age, manufacturer, model, condition, cylinders, fuel, odometer, transmission, drive, type, etc.
+  - Over 1,000 rows have no data beyond id, region, price, and state
+  - The target variable is price (and all rows have data).
+  - Key features for predicting price include:
+      - age, manufacturer, model, condition, cylinders, fuel, odometer, transmission, drive, type, etc.
 
 ### Exploratory Data Analysis/Data Cleaning/Feature Engineering
 
@@ -69,6 +69,7 @@ The goal is to derive actionable insights that explain variation in car prices a
 - Any correlation value such that -0.1 < x < 0.1 is eliminated
 
    <img src="./images/correlation.png" alt="Correlation" width="500" height="300">
+- Columns that are kept
 
 	| Feature      | Correlation |
 	|:-------------|:------------|
@@ -123,8 +124,8 @@ The goal is to derive actionable insights that explain variation in car prices a
 	<img src="./images/poly_coeff.png" alt="Polynomial Coeff" width="1500" height="300">
 
 - Decide which model is better
- - Neither of the models fares greatly it terms of predicted vs. actual data
- - Test vs. Train fit, however, looks good
+ - Neither of the models fares greatly in terms of predicted vs. actual data
+ - Test vs. Train fit, looks good
  - The Linear model seems better since
    - its MSE is much less
    - the prediction seems better due to less negative price points
